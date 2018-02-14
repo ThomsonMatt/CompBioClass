@@ -1,2 +1,2 @@
-# Folder Contains data for class
+# Folder contains data for class
 
