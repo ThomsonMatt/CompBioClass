@@ -1,5 +1,7 @@
 # Introduction
 
+Paul Rivaud wrote this tutorial to help people in the class get oriented with practical aspects of the data. This tutorial addresses some issues with down-loading data de novo--which you are not dealing with currently. There is a ton of useful information here. 
+
 This Github repository contains data files and code examples to get you started in the Computational Biology class taught at Caltech. The goal of this course is to have the students analyze some single-cell sequencing data using programming languages (Julia, R, Python, Matlab, etc.). The content of this README is listed below:  
   
 __General Information__  
