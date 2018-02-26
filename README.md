@@ -9,6 +9,7 @@ __General Information__
 [Normalization](#normalization)  
 [Dimensionality reduction](#dimensionality-reduction)  
 [Clustering](#clustering)  
+[Good practices](#good-practices)  
 __JULIA__  
 [Installing Julia (and Juno)](#installing-julia-and-juno)  
 [Installing packages in Julia](#installing-packages-in-julia)  
@@ -163,7 +164,30 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
 
 ## Clustering
 sergxer
-
+  
+## Good practices  
+Although some students might be familiar with programming, some of them might find the task a bit more challenging. Some of the following points could help:  
+* Looking for information online:  
+There's a ton of information out there on the web and most likely an answer to your question. Looking something up on Google is really part of the process of learning programming. Don't forget to look up official documentation online, for example if you were to wonder about Numpy ndarray's attributes or methods, you would want to look [here](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html) first.  
+* Start small:  
+It's not always easy to apply new methods or algorithms to datasets. You got a result, but is it correct? Does it make sense? A valuable advice is to start small, maybe by truncating a dataset, or just playing around with fake data. That way, applying methods will be faster, and you will have a better chance at detecting errors in your code or interpreting the results.  
+* Streamline your code:  
+Performing tasks directly in a shell does not scale very well, and does not give the best overview. It is useful to have script files where you can store your useful code in functions, and call functions as needed. Reminder: Some programming languages offer an interactive mode after the script is done running or if an errors comes up (`-i` option in Python for example). Please find an example below:
+<pre><code>def load(path):
+    //code to load dataset
+    return dataset
+    
+def apply_pca(dataset,param1,param2):
+    //code to apply pca
+    return results
+      
+d1 = load(`path_to_d1.mtx`)  
+d2 = load(`path_to_d2.mtx`)  
+d3 = load(`path_to_d3.mtx`)  
+pca1 = apply_pca(d1,1,5)  
+pca2 = apply_pca(d2,4,10)  
+pca3 = apply_pca(d3,3,2)  
+</code></pre>  
 
 [∧](#introduction)
 
