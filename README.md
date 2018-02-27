@@ -165,7 +165,7 @@ Machine learning is the ability to learn from datasets without being explicitely
 This set of methods clusters the data points based on similarities found (correlation or distance for example) without having any prior knowledge about the data. A lot of subcategories exist, providing numerous methods that behave differently.  
 An example is the k-means algorithm, which is a centroid-based clustering algorithm. K centroids are picked randomly at first, as centroids of k clusters. Each data point is assigned to a cluster, minimizing the distance between that point and centroids. Once all points have been assigned to a cluster, each cluster calculates its new centroid based on the points in the cluster, and the algorithm iterates again, ginding the closest centroid for each data point. Please see example below:  
 
-![alt text](https://upload.wikimedia.org/wikipedia/commons/f/f9/NMF.png)
+![alt text](https://www.jeremyjordan.me/content/images/2016/12/kmeans.gif)
 
   
 ## Good practices  
