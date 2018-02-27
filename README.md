@@ -160,17 +160,16 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
 [∧](#introduction)
 
 ## Machine learning
-Machine learning is the ability to learn from datasets without being explicitely programmed. This field contains various subdomains, but only two of them are described below:
-* __Unsupervised learning (clustering):__  
-This set of methods clusters the data points based on similarities found (correlation or distance for example) without having any prior knowledge about the data. A lot of subcategories exist, providing numerous methods that behave differently.  
+Machine learning is the ability to learn from datasets without being explicitely programmed. This field contains various subdomains, but only one of them are described below.  
+
+Unsupervised learning is a set of methods that cluster the data points based on similarities found (correlation or distance for example) without having any prior knowledge about the data. A lot of subcategories exist, providing numerous methods that behave differently.  
 An example is the k-means algorithm, which is a centroid-based clustering algorithm. K centroids are picked randomly at first, as centroids of k clusters. Each data point is assigned to a cluster, minimizing the distance between that point and centroids. Once all points have been assigned to a cluster, each cluster calculates its new centroid based on the points in the cluster, and the algorithm iterates again, finding the closest centroid for each data point. Please see example below with k=3:  
 
 ![alt text](https://www.jeremyjordan.me/content/images/2016/12/kmeans.gif)  
 
-Another useful example is hierarchical clustering, a connectivity-based algorithm.  
+Another useful example is hierarchical clustering, a connectivity-based algorithm. From a dissimilarity matrix (pairwise distance square and symmetric matrix. Multiple metrics can be used to generate that matrix, euclidean distance or 1-correlation for example), the algorithm picks the smallest distance value, and clusters objects together before updating the dissimilarity matrix based on the existing clusters and picking the new smallest value available. Note that multiple variants of this algorithm exist (single, complete, etc.) and will provide different results. A good example (complete variant) of the algorithm steps can be found [here](https://onlinecourses.science.psu.edu/stat555/node/86). Once all objects are linked together, the linkage (also called dendrogram, see image beloew) can be cut to get clusters.  
 
-* __Supervised learning (classification):__  
-wefcwef  
+![alt text](https://www.gigawiz.com/imagesng4/Dendrogram1.png)  
   
 ## Good practices  
 Although some students might be familiar with programming, some of them might find the task a bit more challenging. Some of the following points could help:  
