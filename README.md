@@ -167,12 +167,13 @@ sergxer
   
 ## Good practices  
 Although some students might be familiar with programming, some of them might find the task a bit more challenging. Some of the following points could help:  
-* Looking for information online:  
+* __Looking for information online:__  
 There's a ton of information out there on the web and most likely an answer to your question. Looking something up on Google is really part of the process of learning programming. Don't forget to look up official documentation online, for example if you were to wonder about Numpy ndarray's attributes or methods, you would want to look [here](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html) first.  
-* Start small:  
-It's not always easy to apply new methods or algorithms to datasets. You got a result, but is it correct? Does it make sense? A valuable advice is to start small, maybe by truncating a dataset, or just playing around with fake data. That way, applying methods will be faster, and you will have a better chance at detecting errors in your code or interpreting the results.  
-* Streamline your code:  
-Performing tasks directly in a shell does not scale very well, and does not give the best overview. It is useful to have script files where you can store your useful code in functions, and call functions as needed. Reminder: Some programming languages offer an interactive mode after the script is done running or if an errors comes up (`-i` option in Python for example). Please find an example below:
+* __Start small:__  
+It's not always easy to apply new methods or algorithms to datasets. You got a result, but is it correct? Does it make sense? A valuable advice is to start small, maybe by truncating a dataset, or just playing around with mock data. That way, applying methods will be faster, and you will have a better chance at detecting errors in your code or interpreting the results. For example, using a (5x3) matrix to test normalization methods and confirm the results is easier than using a regular (20,000x5,000) gene expression matrix.  
+* __Streamline your code:__  
+Performing tasks directly in a shell does not scale very well, does not give the best overview and makes it harder for the user to retrieve some code back. It is useful to have script files where you can store your code in functions, and call functions as needed. Reminder: Some programming languages offer an interactive mode that lets the user access variables after the script stops, wether the script ends or is stopped by an error (`-i` option in Python for example). Please find an example below:  
+`pca.py` file:  
 <pre><code>def load(path):
     //code to load dataset
     return dataset
@@ -180,14 +181,19 @@ Performing tasks directly in a shell does not scale very well, and does not give
 def apply_pca(dataset,param1,param2):
     //code to apply pca
     return results
+    
+def save_results(output,pca_object):
+    //code to save results in a file
       
 d1 = load(`path_to_d1.mtx`)  
 d2 = load(`path_to_d2.mtx`)  
-d3 = load(`path_to_d3.mtx`)  
 pca1 = apply_pca(d1,1,5)  
 pca2 = apply_pca(d2,4,10)  
-pca3 = apply_pca(d3,3,2)  
+save_results('pca1.file',pca1)  
+save_results('pca2.file',pca2)
 </code></pre>  
+If you are using an IDE, you can run this script and access the variable values easily. If you are using the terminal, you can use `python -i pca.py` to run the script, and access variables from the shell once the script is done running, or if an error eventually pops up.  
+
 
 [∧](#introduction)
 
