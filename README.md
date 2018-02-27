@@ -8,7 +8,7 @@ __General Information__
 [Data structure](#data-structure)  
 [Normalization](#normalization)  
 [Dimensionality reduction](#dimensionality-reduction)  
-[Clustering](#clustering)  
+[Machine learning](#machine-learning)  
 [Good practices](#good-practices)  
 __JULIA__  
 [Installing Julia (and Juno)](#installing-julia-and-juno)  
@@ -155,15 +155,18 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   
   ![alt text](https://upload.wikimedia.org/wikipedia/commons/f/f9/NMF.png)  
   
-  Each column of W is a feature, i.e. a linear combination of genes that can be relevant to a group of cells / a cell type. Each column of H is a cell and contains its scores for all k features.
-  
-  Talk about optimization, KL divergence
-
+  Each column of W is a feature, i.e. a linear combination of genes that can be relevant to a group of cells / a cell type. Each column of H is a cell and contains its scores for all k features: the higher the score, the more representative the feature.  
 
 [∧](#introduction)
 
-## Clustering
-sergxer
+## Machine learning
+Machine learning is the ability to learn from datasets without being explicitely programmed. This field contains various subdomains, but only two of them are described below:
+* __Unsupervised learning (clustering):__  
+This set of methods clusters the data points based on similarities found (correlation or distance for example) without having any prior knowledge about the data. A lot of subcategories exist, providing numerous methods that behave differently.  
+An example is the k-means algorithm, which is a centroid-based clustering algorithm. K centroids are picked randomly at first, as centroids of k clusters. Each data point is assigned to a cluster, minimizing the distance between that point and centroids. Once all points have been assigned to a cluster, each cluster calculates its new centroid based on the points in the cluster, and the algorithm iterates again, ginding the closest centroid for each data point. Please see example below:  
+
+![alt text](https://upload.wikimedia.org/wikipedia/commons/f/f9/NMF.png)
+
   
 ## Good practices  
 Although some students might be familiar with programming, some of them might find the task a bit more challenging. Some of the following points could help:  
@@ -174,6 +177,7 @@ It's not always easy to apply new methods or algorithms to datasets. You got a r
 * __Streamline your code:__  
 Performing tasks directly in a shell does not scale very well, does not give the best overview and makes it harder for the user to retrieve some code back. It is useful to have script files where you can store your code in functions, and call functions as needed. Reminder: Some programming languages offer an interactive mode that lets the user access variables after the script stops, wether the script ends or is stopped by an error (`-i` option in Python for example). Please find an example below:  
 `pca.py` file:  
+  
 <pre><code>def load(path):
     //code to load dataset
     return dataset
