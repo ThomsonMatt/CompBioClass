@@ -160,9 +160,9 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
 [∧](#introduction)
 
 ## Machine learning
-Machine learning is the ability to learn from datasets without being explicitely programmed. This field contains various subdomains, but only one of them are described below.  
+Machine learning is the ability to learn from datasets without being explicitely programmed. This field contains various subdomains, but only clustering is described below. 
 
-Unsupervised learning is a set of methods that cluster the data points based on similarities found (correlation or distance for example) without having any prior knowledge about the data. A lot of subcategories exist, providing numerous methods that behave differently.  
+Unsupervised learning (clustering) is a set of methods that cluster the data points based on similarities found (correlation or distance for example) without having any prior knowledge about the data. A lot of subcategories exist, providing numerous methods that behave differently.  
 An example is the k-means algorithm, which is a centroid-based clustering algorithm. K centroids are picked randomly at first, as centroids of k clusters. Each data point is assigned to a cluster, minimizing the distance between that point and centroids. Once all points have been assigned to a cluster, each cluster calculates its new centroid based on the points in the cluster, and the algorithm iterates again, finding the closest centroid for each data point. Please see example below with k=3:  
 
 ![alt text](https://www.jeremyjordan.me/content/images/2016/12/kmeans.gif)  
