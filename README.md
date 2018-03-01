@@ -153,16 +153,17 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   
   * __Non-negative Matrix Factorization ([NMF](https://en.wikipedia.org/wiki/Non-negative_matrix_factorization))__:  
   NMF works under the condition that values must be positive (as opposed to PCA). It factorizes a matrix V into two matrices W and H so that W.H ~ V. With V of size (m,n), W and H will have respective sizes (m,k) and (k,n), so that rows of W can be multiplied with columns of H (both of length k).  
-  
   ![alt text](https://upload.wikimedia.org/wikipedia/commons/f/f9/NMF.png)  
-  
   Each column of W is a feature, i.e. a linear combination of genes that can be relevant to a group of cells / a cell type. Each column of H is a cell and contains its scores for all k features: the higher the score, the more representative the feature.  
   
   * __t-distributed Stochastic Neighbor Embedding ([t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding)):__  
   t-SNE is a non-linear dimensionality reduction method. It aims at clustering similar objects in a low-dimensional space. As opposed to PCA, t-SNE is based on probability distributions as it performs random walks in neighborhood graphs to find structures in the data. This method also retains both local and global structures in the low-dimensional space.  
   The high-dimensional distance between two data points x~i~ and x~j~ is translated into a conditional probability:  
  ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE.png)  
-  t
+  where sigma~i~ is the standard deviation of the gaussian centered around x~i~.  
+  It is possible to compute a similar conditional probability between data points y~i~ and y~j~, which are the respective low-dimensional counterparts of x~i~ and x~j~:  
+  ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE_low.png)  
+  d
 
 [∧](#introduction)
 
@@ -188,7 +189,6 @@ It's not always easy to apply new methods or algorithms to datasets. You got a r
 * __Streamline your code:__  
 Performing tasks directly in a shell does not scale very well, does not give the best overview and makes it harder for the user to retrieve some code back. It is useful to have script files where you can store your code in functions, and call functions as needed. Reminder: Some programming languages offer an interactive mode that lets the user access variables after the script stops, wether the script ends or is stopped by an error (`-i` option in Python for example). Please find an example below:  
 `pca.py` file:  
-  
 <pre><code>def load(path):
     //code to load dataset
     return dataset
