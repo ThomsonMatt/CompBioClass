@@ -312,7 +312,7 @@ M is a [coo_matrix](https://docs.scipy.org/doc/scipy/reference/generated/scipy.s
 ## Loading labels in Python  
 The [csv](https://docs.python.org/2/library/csv.html) module will help you read cell and gene labels from the barcodes.tsv and genes.tsv files.
 <pre><code>barcodes = [row[0] for row in csv.reader(open('my_path/barcodes.tsv'), delimiter="\t")]  
-genes =row[1].upper() for row in csv.reader(open('my_path/genes.tsv'), delimiter="\t")]
+genes = [row[1].upper() for row in csv.reader(open('my_path/genes.tsv'), delimiter="\t")]
 </pre></code>  
 
 Note that you can also use very basic file processing if you find it easier:
