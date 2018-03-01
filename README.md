@@ -158,8 +158,13 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   
   Each column of W is a feature, i.e. a linear combination of genes that can be relevant to a group of cells / a cell type. Each column of H is a cell and contains its scores for all k features: the higher the score, the more representative the feature.  
   
-  * __t-distributed Stochastic Neighbor Embedding ([tSNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding)):__  
-  t-SNE is 
+  * __t-distributed Stochastic Neighbor Embedding ([t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding)):__  
+  t-SNE is a non-linear dimensionality reduction method. It aims at clustering similar objects in a low-dimensional space. As opposed to PCA, t-SNE is based on probability distributions as it performs random walks in neighborhood graphs to find structures in the data. This method also retains both local and global structures in the low-dimensional space.  
+  The high-dimensional distance between two data points x~i~ and x~j~ is translated into a conditional probability P~j|i~:  
+
+ ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE.png)  
+    
+  t
 
 [∧](#introduction)
 
