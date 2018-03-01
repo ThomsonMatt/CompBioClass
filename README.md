@@ -22,6 +22,7 @@ __R__
 __PYTHON__  
 [Loading mtx files in Python](#loading-mtx-files-in-python)  
 [Loading labels in Python](#loading-labels-in-python)  
+[Hierarchical clustering and heatmap in Python](#hierarchical-clustering-and-heatmap-in-python)  
 __MATLAB__  
 [Loading mtx files in Matlab](#loading-mtx-files-in-matlab)  
 [Loading labels in Matlab](#loading-labels-in-matlab)  
@@ -321,6 +322,10 @@ with open('my_path/barcodes.tsv') as f:
     for line in f:
         barcodes.append(line.strip('\n'))
 </pre></code>  
+
+## Hierarchical clustering and heatmap in Python  
+[This example](https://github.com/ThomsonMatt/CompBioClass/blob/master/code_rsc/hclust_heatmap/hclust_heatmap.py) shows how to load a matrix, perform hierarchical clustering on both rows and columns and plot the results as a heatmap with dendrograms (linkages). It also shows how to save the clustered matrix.  
+
 [∧](#introduction)
 
 # Matlab
