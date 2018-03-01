@@ -157,6 +157,9 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   ![alt text](https://upload.wikimedia.org/wikipedia/commons/f/f9/NMF.png)  
   
   Each column of W is a feature, i.e. a linear combination of genes that can be relevant to a group of cells / a cell type. Each column of H is a cell and contains its scores for all k features: the higher the score, the more representative the feature.  
+  
+  * __t-distributed Stochastic Neighbor Embedding ([tSNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding)):__  
+  t-SNE is 
 
 [∧](#introduction)
 
