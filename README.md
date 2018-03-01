@@ -158,10 +158,10 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   
   * __t-distributed Stochastic Neighbor Embedding ([t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding)):__  
   t-SNE is a non-linear dimensionality reduction method. It aims at clustering similar objects in a low-dimensional space. As opposed to PCA, t-SNE is based on probability distributions as it performs random walks in neighborhood graphs to find structures in the data. This method also retains both local and global structures in the low-dimensional space.  
-  The high-dimensional distance between two data points x~i~ and x~j~ is translated into a conditional probability:  
+  The high-dimensional distance between two data points x<sub>i</sub> and x<sub>j</sub> is translated into a conditional probability p<sub>j|i</sub>:  
  ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE.png)  
-  where sigma~i~ is the standard deviation of the gaussian centered around x~i~.  
-  It is possible to compute a similar conditional probability between data points y~i~ and y~j~, which are the respective low-dimensional counterparts of x~i~ and x~j~:  
+  where sigma<sub>i</sub> is the standard deviation of the gaussian centered around x<sub>i</sub>.  
+  It is possible to compute a similar conditional probability q<sub>j|i</sub> between data points y<sub>i</sub> and y<sub>j</sub>, which are the respective low-dimensional counterparts of x<sub>i</sub> and x<sub>j</sub>:  
   ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE_low.png)  
   d
 
