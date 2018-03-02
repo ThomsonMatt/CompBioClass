@@ -163,7 +163,7 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   where sigma<sub>i</sub> is the standard deviation of the gaussian centered around x<sub>i</sub>.  
   It is possible to compute a similar conditional probability q<sub>j|i</sub> between data points y<sub>i</sub> and y<sub>j</sub>, which are the respective low-dimensional counterparts of x<sub>i</sub> and x<sub>j</sub>:  
   ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE_low.png)  
-  t-SNE aims at minimizing the difference between pairs of conditional probabilities (p<sub>j|i</sub>,q<sub>j|i</sub>), since an exact representation of  high-dimensional data in a low-dimensional space would replicate conditional probability values. The algorithm minimizes the Kullback-Leibler divergence of the distribution Q from the distribution P, using a heavy-tail Student's t-distribution. 
+  t-SNE aims at minimizing the difference between pairs of conditional probabilities (p<sub>j|i</sub>,q<sub>j|i</sub>), since an exact representation of  high-dimensional data in a low-dimensional space would replicate conditional probability values. The algorithm minimizes the Kullback-Leibler divergence of distribution Q from distribution P, using a heavy-tail Student's t-distribution. 
 
 [∧](#introduction)
 
