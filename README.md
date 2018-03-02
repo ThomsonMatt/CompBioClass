@@ -207,8 +207,7 @@ pca2 = apply_pca(d2,4,10)
 save_results('pca1.file',pca1)  
 save_results('pca2.file',pca2)
 </code></pre>  
-If you are using an IDE, you can run this script and access the variable values easily. If you are using the terminal, you can use `python -i pca.py` to run the script, and access variables from the shell once the script is done running, or if an error eventually pops up.  
-
+If you are using an IDE, you can run this script and access the variable values easily. If you are using the terminal, you can use `python -i pca.py` to run the script, and access variables from the shell once the script is done running, or if an error eventually pops up. Also, don't hesitate to overuse the `print` function if you are using the terminal to get intermediate results as your script progresses.    
 
 [∧](#introduction)
 
