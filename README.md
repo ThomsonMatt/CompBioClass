@@ -160,10 +160,10 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   t-SNE is a non-linear dimensionality reduction method. It aims at clustering similar objects in a low-dimensional space. As opposed to PCA, t-SNE is based on probability distributions as it performs random walks in neighborhood graphs to find structures in the data. This method also retains both local and global structures in the low-dimensional space. The algorithm works as follows:  
   The high-dimensional distance between two data points x<sub>i</sub> and x<sub>j</sub> is translated into a conditional probability p<sub>j|i</sub>:  
  ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE.png)  
-  where sigma<sub>i</sub> is the standard deviation of the gaussian centered around x<sub>i</sub>.  
+  where sigma<sub>i</sub> is the variance of the gaussian centered around x<sub>i</sub>.  
   It is possible to compute a similar conditional probability q<sub>j|i</sub> between data points y<sub>i</sub> and y<sub>j</sub>, which are the respective low-dimensional counterparts of x<sub>i</sub> and x<sub>j</sub>:  
   ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE_low.png)  
-  t-SNE aims at minimizing the difference between pairs of conditional probabilities (p<sub>j|i</sub>,q<sub>j|i</sub>), since an exact representation of  high-dimensional data in a low-dimensional space would replicate conditional probability values. The algorithm minimizes the Kullback-Leibler divergence of distribution Q from distribution P, using a heavy-tail Student's t-distribution. 
+  t-SNE aims at minimizing the difference between pairs of conditional probabilities (p<sub>j|i</sub>,q<sub>j|i</sub>), since an exact representation of  high-dimensional data in a low-dimensional space would replicate conditional probability values. The algorithm minimizes the Kullback-Leibler divergence of distribution Q from distribution P, using a heavy-tail Student's t-distribution.  
 
 [∧](#introduction)
 
