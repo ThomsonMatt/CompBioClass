@@ -22,6 +22,7 @@ __R__
 __PYTHON__  
 [Loading mtx files in Python](#loading-mtx-files-in-python)  
 [Loading labels in Python](#loading-labels-in-python)  
+[Hierarchical clustering and heatmap in Python](#hierarchical-clustering-and-heatmap-in-python)  
 __MATLAB__  
 [Loading mtx files in Matlab](#loading-mtx-files-in-matlab)  
 [Loading labels in Matlab](#loading-labels-in-matlab)  
@@ -152,10 +153,17 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   
   * __Non-negative Matrix Factorization ([NMF](https://en.wikipedia.org/wiki/Non-negative_matrix_factorization))__:  
   NMF works under the condition that values must be positive (as opposed to PCA). It factorizes a matrix V into two matrices W and H so that W.H ~ V. With V of size (m,n), W and H will have respective sizes (m,k) and (k,n), so that rows of W can be multiplied with columns of H (both of length k).  
-  
   ![alt text](https://upload.wikimedia.org/wikipedia/commons/f/f9/NMF.png)  
-  
   Each column of W is a feature, i.e. a linear combination of genes that can be relevant to a group of cells / a cell type. Each column of H is a cell and contains its scores for all k features: the higher the score, the more representative the feature.  
+  
+  * __t-distributed Stochastic Neighbor Embedding ([t-SNE](https://en.wikipedia.org/wiki/T-distributed_stochastic_neighbor_embedding)):__  
+  t-SNE is a non-linear dimensionality reduction method. It aims at clustering similar objects in a low-dimensional space. As opposed to PCA, t-SNE is based on probability distributions as it performs random walks in neighborhood graphs to find structures in the data. This method also retains both local and global structures in the low-dimensional space. The algorithm works as follows:  
+  The high-dimensional distance between two data points x<sub>i</sub> and x<sub>j</sub> is translated into a conditional probability p<sub>j|i</sub>:  
+ ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE.png)  
+  where sigma<sub>i</sub> is the variance of the gaussian centered around x<sub>i</sub>.  
+  It is possible to compute a similar conditional probability q<sub>j|i</sub> between data points y<sub>i</sub> and y<sub>j</sub>, which are the respective low-dimensional counterparts of x<sub>i</sub> and x<sub>j</sub>:  
+  ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE_low.png)  
+  t-SNE aims at minimizing the difference between pairs of conditional probabilities (p<sub>j|i</sub>,q<sub>j|i</sub>), since an exact representation of  high-dimensional data in a low-dimensional space would replicate conditional probability values. The algorithm minimizes the Kullback-Leibler divergence of distribution Q from distribution P, using a heavy-tail Student's t-distribution.  
 
 [∧](#introduction)
 
@@ -163,11 +171,12 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
 Machine learning is the ability to learn from datasets without being explicitely programmed. This field contains various subdomains, but only clustering is described below. 
 
 Unsupervised learning (clustering) is a set of methods that cluster the data points based on similarities found (correlation or distance for example) without having any prior knowledge about the data. A lot of subcategories exist, providing numerous methods that behave differently.  
-An example is the k-means algorithm, which is a centroid-based clustering algorithm. K centroids are picked randomly at first, as centroids of k clusters. Each data point is assigned to a cluster, minimizing the distance between that point and centroids. Once all points have been assigned to a cluster, each cluster calculates its new centroid based on the points in the cluster, and the algorithm iterates again, finding the closest centroid for each data point. Please see example below with k=3:  
+
+* An example is the __k-means algorithm__, which is a centroid-based clustering algorithm. K centroids are picked randomly at first, as centroids of k clusters. Each data point is assigned to a cluster, minimizing the distance between that point and centroids. Once all points have been assigned to a cluster, each cluster calculates its new centroid based on the points in the cluster, and the algorithm iterates again, finding the closest centroid for each data point. Please see example below with k=3:  
 
 ![alt text](https://www.jeremyjordan.me/content/images/2016/12/kmeans.gif)  
 
-Another useful example is hierarchical clustering, a connectivity-based algorithm. From a dissimilarity matrix (pairwise distance square and symmetric matrix. Multiple metrics can be used to generate that matrix, euclidean distance or 1-correlation for example), the algorithm picks the smallest distance value, and clusters objects together before updating the dissimilarity matrix based on the existing clusters and picking the new smallest value available. Note that multiple variants of this algorithm exist (single, complete, etc.) and will provide different results. A good example (complete variant) of the algorithm steps can be found [here](https://onlinecourses.science.psu.edu/stat555/node/86). Once all objects are linked together, the linkage (also called dendrogram, see image below) can be cut to get clusters.  
+* Another useful example is __hierarchical clustering__, a connectivity-based algorithm. From a dissimilarity matrix (pairwise distance square and symmetric matrix. Multiple metrics can be used to generate that matrix, euclidean distance or 1-correlation for example), the algorithm picks the smallest distance value, and clusters objects together before updating the dissimilarity matrix based on the existing clusters and picking the new smallest value available. Note that multiple variants of this algorithm exist (single, complete, etc.) and will provide different results. A good example (complete variant) of the algorithm steps can be found [here](https://onlinecourses.science.psu.edu/stat555/node/86). Once all objects are linked together, the linkage (also called dendrogram, see image below) can be cut to get clusters. Note that if you want to cluster both rows and columns, you will have to apply the algorithm twice. [This example](https://github.com/ThomsonMatt/CompBioClass/blob/master/code_rsc/hclust_heatmap/hclust_heatmap.py) shows how to perform hierarchical clustering in Python, and how to plot the clustered matrix as a heatmap. If you download the script and the data files on your computer, you can launch the script from the terminal using `python hclust_heatmap.py` (Python 2.7).
 
 ![alt text](https://www.gigawiz.com/imagesng4/Dendrogram1.png)  
   
@@ -180,7 +189,6 @@ It's not always easy to apply new methods or algorithms to datasets. You got a r
 * __Streamline your code:__  
 Performing tasks directly in a shell does not scale very well, does not give the best overview and makes it harder for the user to retrieve some code back. It is useful to have script files where you can store your code in functions, and call functions as needed. Reminder: Some programming languages offer an interactive mode that lets the user access variables after the script stops, wether the script ends or is stopped by an error (`-i` option in Python for example). Please find an example below:  
 `pca.py` file:  
-  
 <pre><code>def load(path):
     //code to load dataset
     return dataset
@@ -199,8 +207,7 @@ pca2 = apply_pca(d2,4,10)
 save_results('pca1.file',pca1)  
 save_results('pca2.file',pca2)
 </code></pre>  
-If you are using an IDE, you can run this script and access the variable values easily. If you are using the terminal, you can use `python -i pca.py` to run the script, and access variables from the shell once the script is done running, or if an error eventually pops up.  
-
+If you are using an IDE, you can run this script and access the variable values easily. If you are using the terminal, you can use `python -i pca.py` to run the script, and access variables from the shell once the script is done running, or if an error eventually pops up. Also, don't hesitate to overuse the `print` function if you are using the terminal to get intermediate results as your script progresses.    
 
 [∧](#introduction)
 
@@ -321,6 +328,10 @@ with open('my_path/barcodes.tsv') as f:
     for line in f:
         barcodes.append(line.strip('\n'))
 </pre></code>  
+
+## Hierarchical clustering and heatmap in Python  
+[This example](https://github.com/ThomsonMatt/CompBioClass/blob/master/code_rsc/hclust_heatmap/hclust_heatmap.py) shows how to load a matrix, perform hierarchical clustering on both rows and columns and plot the results as a heatmap with dendrograms (linkages). It also shows how to save the clustered matrix. If you download the script and the data files on your computer, you can launch the script from the terminal using `python hclust_heatmap.py` (Python 2.7).  
+
 [∧](#introduction)
 
 # Matlab
