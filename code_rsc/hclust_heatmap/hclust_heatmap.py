@@ -56,12 +56,21 @@ hclust_cells = [labels_cells[int(i)] for i in idx_cells]
 hclust_genes = [labels_genes[int(i)] for i in idx_genes]
 
 ## plotting heatmap
+#----------- pydendroheatmap -----------
 #bash command: pip install pydendroheatmap
-import pydendroheatmap as pdh
-heatmap = pdh.DendroHeatMap(heat_map_data=M.toarray(), left_dendrogram=z_genes, top_dendrogram=z_cells)
-heatmap.colormap = heatmap.yellowBlackBlue
-heatmap.row_labels = hclust_genes
-heatmap.show()
+#import pydendroheatmap as pdh
+#heatmap = pdh.DendroHeatMap(heat_map_data=M.toarray(), left_dendrogram=z_genes, top_dendrogram=z_cells)
+#heatmap.colormap = heatmap.yellowBlackBlue
+#heatmap.row_labels = hclust_genes
+#heatmap.show()
+
+#----------- seaborn -----------
+#bash command: pip install seaborn
+import seaborn as sns; sns.set()
+import matplotlib.pyplot as plt
+ax = sns.heatmap(M.toarray(),xticklabels=hclust_cells,yticklabels=hclust_genes)
+plt.show()
+
 
 ## Matlab can plot large heatmaps better than any other program.
 ## I strongly advise to load the clustered matrix in Matlab
