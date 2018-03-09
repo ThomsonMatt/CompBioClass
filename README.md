@@ -164,6 +164,8 @@ Dimensionality reduction methods enable users to analyze high-dimensional proble
   It is possible to compute a similar conditional probability q<sub>j|i</sub> between data points y<sub>i</sub> and y<sub>j</sub>, which are the respective low-dimensional counterparts of x<sub>i</sub> and x<sub>j</sub>:  
   ![alt text](https://github.com/PaulRivaud/mthomson-2018-winter-term/blob/master/rsc/TSNE_low.png)  
   t-SNE aims at minimizing the difference between pairs of conditional probabilities (p<sub>j|i</sub>,q<sub>j|i</sub>), since an exact representation of  high-dimensional data in a low-dimensional space would replicate conditional probability values. The algorithm minimizes the Kullback-Leibler divergence of distribution Q from distribution P, using a heavy-tail Student's t-distribution.  
+  [Scikit-learn t-SNE](http://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html)  
+  [Distributed t-SNE](https://github.com/DmitryUlyanov/Multicore-TSNE)  
 
 [∧](#introduction)
 
